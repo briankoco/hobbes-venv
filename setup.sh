@@ -12,6 +12,9 @@ if [ -d "extern/install" ]; then
     fi
 fi
 
+git submodule init
+git submodule update
+
 setup_log=${PWD}/setup.log
 
 RED='\033[0;31m'
