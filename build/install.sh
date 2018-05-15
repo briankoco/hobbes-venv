@@ -32,6 +32,18 @@ if [ -z $WANT_MODULES ]; then
     exit
 fi
 
+# Make sure the directory structure is populated
+dev_directories=("pts" "bsg" "net" "raw" "input" "shm" "dri" "mapper" "cpu" "snd")
+
+mkdir -p "$INITRAMFS/dev"
+for d in ${dev_directories[@]}; do
+    mkdir -p "$INITRAMFS/dev/$d"
+done
+
+mkdir -p "$INITRAMFS/tmp"
+mkdir -p "$INITRAMFS/sys"
+mkdir -p "$INITRAMFS/proc"
+
 # Install kernel modules in the initramfs image
 if [ $WANT_MODULES -eq 1 ]; then
     echo "Installing kernel modules in $INITRAMFS"
