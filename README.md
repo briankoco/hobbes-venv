@@ -86,7 +86,7 @@ to setup a build environment.
     ```
 
    where key/val pairs are your desired environment values. You can also export them via
-   `export` in most shells, rather than prepending them to he `./build.sh` command.
+   `export` in most shells, rather than prepending them to the `./build.sh` command.
    
 3. Assuming you left the `WANT_ISOIMAGE` option on, if the build script
    succeeds you will have an isoimage located in `images/image.iso`. This image
