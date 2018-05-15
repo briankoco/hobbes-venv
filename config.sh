@@ -28,7 +28,7 @@ if [ -z $KERNEL_SOURCE ]; then
 fi
 
 # Whether or not to install the Leviathan/Petos development utilities
-WANT_LEVIATHAN=${WANT_LEVIATHAN:-1}
+WANT_LEVIATHAN=${WANT_LEVIATHAN:-0}
 
 # Path to leviathan source tree
 if [ $WANT_LEVIATHAN -eq 1 ]; then
