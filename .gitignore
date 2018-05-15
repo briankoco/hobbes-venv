@@ -1,0 +1,8 @@
+extern/dropbear_build
+extern/build
+extern/install
+images/image.iso
+build/isofiles/bzImage
+build/isofiles/initrd.img
+initramfs/opt/
+initramfs/lib/modules

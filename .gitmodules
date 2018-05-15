@@ -1,0 +1,6 @@
+[submodule "extern/busybox"]
+	path = extern/busybox
+	url = git://busybox.net/busybox.git
+[submodule "extern/dropbear"]
+	path = extern/dropbear
+	url = git://github.com/mkj/dropbear.git

@@ -1,0 +1,25 @@
+echo "BEGIN /etc/init.d/rcS"
+echo " ..... "
+
+echo "4 4 1 7" > /proc/sys/kernel/printk
+
+chown root -R /root
+
+# Install modules
+depmod
+
+# Run leviathan setup script
+# /opt/leviathan/start_leviathan.sh
+
+# Bring up lo
+ifconfig lo 127.0.0.1 netmask 255.0.0.0 up
+
+# Bring up eth0 on host only network
+#ip addr flush dev eth0
+#ip addr add 192.168.254.21/255.255.255.0 dev eth0
+#ifconfig eth0 up
+
+# Startup dropbear
+#dropbear
+
+echo "END /etc/init.d/rcS"
