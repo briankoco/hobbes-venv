@@ -145,24 +145,26 @@ the Leviathan framework.
     git clone https://gitlab.prognosticlab.org/prognosticlab/leviathan.git
     ```
 
-2. Then, from the top level of the source code, run:
-    ```
-    ./setup.sh
-    ```
-
-3. Make sure the Leviathan components are built against the same version of the Linux
-   kernel that you are specified in `config.sh`. The easiest way to do this is to export
-   the following variable in your current shell:
+2. You need to ensure that the Leviathan components are built against the same
+   version of the Linux kernel that you are specified in `config.sh`. The easiest
+   way to do this is to export the following variable in your current shell:
 
     ```
     export LINUX_KERN=*path to Linux kernel*
     ```
 
-   and then invoke:
+   Then, from the top level of the source code, run:
+    ```
+    ./setup.sh
+    ```
+
+3.
+   Finally, invoke:
 
     ```
     make
     ```
+
    from the top level of the Leviathan tree to build each of the NVL components against
    this kernel version.
 
