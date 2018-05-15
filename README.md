@@ -76,7 +76,7 @@ to setup a build environment.
    ```
 
    For each variable in `config.sh`, you can modify the value in 1 of 2 ways:
-    * Modify the value to the left of the `:-` value to change the default
+    * Modify the value to the right of the `:-` operator to change the *default*
     * Set the value in your environment
 
    Once you have determined your desired settings, invoke the build script as follows:
