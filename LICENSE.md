@@ -1,4 +1,4 @@
-Copyright (c) 2017, Brian Kocoloski <briankoco@cs.pitt.edu>
+Copyright (c) 2018, Brian Kocoloski <brian.kocoloski@wustl.edu>
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
