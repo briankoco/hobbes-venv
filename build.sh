@@ -39,7 +39,7 @@ if [ -z $KERNEL_RELEASE ]; then
     exit 1
 fi
 
-if [ ! -z $GUEST_KERNEL_SOURCE ]; then
+if [ $WANT_GUEST_ISOIMAGE -eq 1 ] && [ ! -z $GUEST_KERNEL_SOURCE ]; then
     GUEST_KERNEL_RELEASE=$(get_kernel_release $GUEST_KERNEL_SOURCE)
     if [ -z $GUEST_KERNEL_RELEASE ]; then
         echo "Failed to determine KERNEL_RELEASE from kernel headers"
@@ -56,9 +56,12 @@ export WANT_MODULES
 if [ $WANT_GUEST_ISOIMAGE -eq 1 ]; then
     echo "Building guest iso image ..."
 
+    # TODO: the assumption is that we don't want Leviathan in the guest, so we set
+    # WANT_MODULES to 0 -- but this is not necessarily true.
+
     # Install kernel and modules in guest
     INITRAMFS=${GUEST_INITRAMFS} GUEST_KERNEL_RELEASE=${GUEST_KERNEL_RELEASE} \
-        KERNEL_SOURCE=${GUEST_KERNEL_SOURCE} source ./install.sh 
+        KERNEL_SOURCE=${GUEST_KERNEL_SOURCE} WANT_MODULES=0 source ./install.sh 
 
     # Build guest iso
     KERNEL_SOURCE=${GUEST_KERNEL_SOURCE} INITRD="${GUEST_INITRAMFS}.cpio.gz" CONFIG="guest.cfg" \

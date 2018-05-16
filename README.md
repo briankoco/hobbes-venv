@@ -7,7 +7,7 @@ compatible with the Hobbes node virtualization layer (NVL)
 
 If you just want to play around with the infrastructure, a pre-built isoimage
 containing busybox and a 4.16.7 Linux kernel is shipped with this repository
-(`images/linux4-16-7-with-nvl.iso`). This image can boot on raw x86_64 hardware,
+(`images/linux3-8-1-with-nvl.iso`). This image can boot on raw x86_64 hardware,
 but it is easier to play around with via QEMU. Prerequisites for this image
 are:
 
@@ -40,18 +40,16 @@ components, but an image is needed for booting into the environment.
 </sub>
 </p>
 
-## Getting Started
-
-### Quick Start
+## Quick Start
 
 Invoke: 
 
-    ./run-in-qemu.sh images/lnx4-16-7-with-nvl.iso
+    ./run-in-qemu.sh images/lnx3-8-1-with-nvl.iso
 
 to boot a pre-built version of the Hobbes NVL with version 4.16.7 of the Linux
 kernel via QEMU/KVM
 
-### Customizing your Builds
+## Customizing your Builds
 
 If you plan to make modifications to the Hobbes NVL components, or you want to
 add different utilities/applications/etc. to the initramfs, then you will need
@@ -174,11 +172,54 @@ file. This will allow the build script to install Leviathan utilities in the
 initramfs under the `initramfs/opt/` directory.
 
 
+## Linux Kernel Configuration Settings
+
+The NVL infrastrucutre relies on a set of configuration options in the host Linux
+kernel. We are aware of at least the following requirements:
+
+* CONFIG_MEMORY_HOTPLUG=y
+* CONFIG_MEMORY_HOTREMOVE=y
+* CONFIG_MMU_NOTIFIER=y
+* CONFIG_HOTPLUG_CPU=y
+* \# CONFIG_DEBUG_PAGEALLOC is **not set**
+* CONFIG_UVENT_HELPER="/sbin/hotplug" (required for compatibility with the busybox `mdev` utility)
+
+Furthermore, to enable serial console access via QEMU, the kernel needs (at
+least) the following options:
+
+* CONFIG_SERIAL_8250=y
+* CONFIG_SERIAL_8250_CONSOLE=y
+
+## Known Issues
+
+1. **Guest kernel panics during boot process**
+
+    When running images via QEMU, the `run-in-qemu.sh` script uses the `-cpu host`
+    model to emulate the exact CPU model of the host machine, which is the most 
+    reliable way to ensure that the emulated CPU has virtualization extensions
+    required for Palacios. However, `-cpu host` frequently causes problems in
+    QEMU/KVM, including kernel panics during the boot process, usually as a
+    result of `rdmsr/wrmsr` instructions.
+
+    There are two general workarounds to this problem:
+
+    1. If the panics are MSR related, use: 
+
+        ```echo 1 > /sys/module/kvm/parameters/ignore_msrs``` 
+        
+       on the host kernel to tell KVM not to inject a GPF into the guest when
+       it accesses non-virtualized MSRs.
+
+    2. Remove the `-cpu host` flag from the QEMU command line. This will likely
+       prevent Palacios from working in the VM, but the remaining NVL framework
+       should still function.
+ 
 ## TODO
 
 1. Automate kernel build process
+    * And double check config against the required options
 2. Automate Leviathan build process
-3. Support mounting of root filesystem
+3. Support mounting of a persistent root filesystem
 
 ## Authors
 

@@ -18,6 +18,4 @@ echo "Starting qemu terminal emulator in 5s."
 echo "Once the VM starts, type ctrl-A+X to kill the VM and exit"
 sleep 5
 
-qemu-system-x86_64 -enable-kvm -cpu host -smp 2 -m 1024 -boot d -cdrom $isoimage -nographic
-
-#qemu-system-x86_64 -enable-kvm -cpu host -smp 2 -m 1024 -kernel images/bzImage -initrd images/initrd.img -nographic -append "console=ttyS0"
+qemu-system-x86_64 -enable-kvm -cpu host -smp 2 -m 1024 -boot d -cdrom $isoimage -nographic 

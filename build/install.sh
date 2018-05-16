@@ -117,8 +117,11 @@ if [ $WANT_LEVIATHAN -eq 1 ]; then
     cp $LEVIATHAN_SOURCE/hio/generic-io-stub/stub $INITRAMFS/opt/hio
     cp $LEVIATHAN_SOURCE/hio/test-app/app $INITRAMFS/opt/hio/app
 
-    # Dropbear
-    # mkdir -p $INITRAMFS/opt/dropbear
+    # Configuration files
+    mkdir -p $INITRAMFS/opt/configs
+    cp initramfs_files/configs/* $INITRAMFS/opt/configs
+
+    # External binaries
     cp -r ../extern/install/bin/* $INITRAMFS/bin
     cp -r ../extern/install/sbin/* $INITRAMFS/sbin
 fi

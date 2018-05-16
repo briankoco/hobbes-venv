@@ -1,0 +1,10 @@
+<pisces>
+    <kernel>/opt/pisces/vmlwk.bin</kernel>
+    <init_task>/opt/leviathan/lwk_init</init_task>
+    <cmd_line>console=pisces sched_hz=1000</cmd_line>
+
+    <boot_env numa="0">
+       <cpu>1</cpu>
+       <memory size="128"></memory>
+    </boot_env>
+</pisces>
