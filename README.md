@@ -5,23 +5,29 @@ compatible with the Hobbes node virtualization layer (NVL)
 
 ### Prerequisites
 
-If you just want to play around with the infrastructure, a pre-built isoimage
+* If you just want to play around with the infrastructure, a pre-built isoimage
 containing busybox and a 4.16.7 Linux kernel is shipped with this repository
 (`images/linux3-8-1-with-nvl.iso`). This image can boot on raw x86_64 hardware,
 but it is easier to play around with via QEMU. Prerequisites for this image
 are:
 
-* QEMU 2.7<sup>1</sup>
+    * QEMU 2.7<sup>1</sup>
 
-On the other hand, if you want to be able to build images with full NVL support
+* On the other hand, if you want to be able to build images with full NVL support
 and with your own custom kernel images, you need the following:
 
-* QEMU 2.7<sup>1</sup>
-* Autoconf
-* Autoheader
-* gcc
-* git
-* Compiled version of the Linux kernel<sup>2</sup>
+    * QEMU 2.7<sup>1</sup>
+    * Autoconf
+    * Autoheader
+    * gcc
+    * git
+    * Compiled version of the Linux kernel<sup>2</sup>
+
+* If you plan to leverage QEMU/KVM to boot into the NVL, and you want Palacios VMM
+support, you need to enable nested virtualization in KVM:
+
+    * For AMD processors: `echo 1 > /sys/module/kvm_amd/parameters/nested`
+    * For Intel processors: `echo 1 > /sys/module/kvm_intel/parameters/nested`
 
 <p>
 <sup>1</sup>
@@ -46,7 +52,7 @@ Invoke:
 
     ./run-in-qemu.sh images/lnx3-8-1-with-nvl.iso
 
-to boot a pre-built version of the Hobbes NVL with version 4.16.7 of the Linux
+to boot a pre-built version of the Hobbes NVL with version 3.8.1 of the Linux
 kernel via QEMU/KVM
 
 ## Customizing your Builds
