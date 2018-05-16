@@ -120,11 +120,11 @@ if [ $WANT_LEVIATHAN -eq 1 ]; then
     # Configuration files
     mkdir -p $INITRAMFS/opt/configs
     cp initramfs_files/configs/* $INITRAMFS/opt/configs
-
-    # External binaries
-    cp -r ../extern/install/bin/* $INITRAMFS/bin
-    cp -r ../extern/install/sbin/* $INITRAMFS/sbin
 fi
+
+# External binaries
+cp -r ../extern/install/bin/* $INITRAMFS/bin
+cp -r ../extern/install/sbin/* $INITRAMFS/sbin
 
 # Install the initramfs
 pushd $INITRAMFS
