@@ -14,3 +14,4 @@ guest-initramfs/opt/
 guest-initramfs/lib/modules
 guest-initramfs/lib/firmware
 setup.log
+build.log
