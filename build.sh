@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Make sure setup has been executed
+if [ ! -d extern/install ]; then
+    echo "Have you run ./setup.sh yet??"
+    exit -1
+fi
+
 HOST_INITRAMFS="${PWD}/initramfs"
 GUEST_INITRAMFS="${PWD}/guest-initramfs"
 
