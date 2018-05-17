@@ -6,7 +6,7 @@ compatible with the Hobbes node virtualization layer (NVL)
 ### Prerequisites
 
 * If you just want to play around with the infrastructure, a pre-built isoimage
-containing busybox and a 4.16.7 Linux kernel is shipped with this repository
+containing busybox and a 3.8.1 Linux kernel is shipped with this repository
 (`images/linux3-8-1-with-nvl.iso`). This image can boot on raw x86_64 hardware,
 but it is easier to play around with via QEMU. Prerequisites for this image
 are:
@@ -188,7 +188,7 @@ kernel. We are aware of at least the following requirements:
 * CONFIG_MMU_NOTIFIER=y
 * CONFIG_HOTPLUG_CPU=y
 * \# CONFIG_DEBUG_PAGEALLOC is **not set**
-* CONFIG_UVENT_HELPER="/sbin/hotplug" (required for compatibility with the busybox `mdev` utility)
+* CONFIG_UEVENT_HELPER="/sbin/hotplug" (required for compatibility with the busybox `mdev` utility)
 
 Furthermore, to enable serial console access via QEMU, the kernel needs (at
 least) the following options:
