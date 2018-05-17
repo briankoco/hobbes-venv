@@ -13,7 +13,8 @@ dropbear_install=${extern_dir}/install
 
 mkdir -p $dropbear_build
 pushd $dropbear_build
-$dropbear_src/configure --enable-static --prefix=${dropbear_install}
+#$dropbear_src/configure --enable-static --prefix=${dropbear_install}
+$dropbear_src/configure --prefix=${dropbear_install}
 ret_val=$?
 popd
 
