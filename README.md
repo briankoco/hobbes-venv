@@ -219,6 +219,12 @@ least) the following options:
     2. Remove the `-cpu host` flag from the QEMU command line. This will likely
        prevent Palacios from working in the VM, but the remaining NVL framework
        should still function.
+
+2. **Failed to execute /init during boot process**
+
+    This is likely also an issue with `-cpu host` on some processor architectures.
+    We have confirmed this issue on AMD EPYC processors. Remove `-cpu host` from
+    the QEMU command line
  
 ## TODO
 
