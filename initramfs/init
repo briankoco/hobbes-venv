@@ -42,4 +42,4 @@ clear
 echo "Hello from the initramfs"
 
 # Fire up the console
-exec /sbin/init "$@" < /dev/console > /dev/console 2>&1
+exec /bin/busybox init "$@" < /dev/console > /dev/console 2>&1
