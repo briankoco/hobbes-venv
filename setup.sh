@@ -65,4 +65,4 @@ exec_and_check ./dropbear-build.sh || exit 1
 
 popd
 
-source build/guest-initramfs/lib/firmware
+source build/setup-guest-initramfs.sh
