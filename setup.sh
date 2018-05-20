@@ -64,3 +64,5 @@ echo -n "Building dropbear ... "
 exec_and_check ./dropbear-build.sh || exit 1
 
 popd
+
+source build/guest-initramfs/lib/firmware
