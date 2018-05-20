@@ -9,9 +9,6 @@ initramfs/bin/
 initramfs/opt/
 initramfs/lib/modules
 initramfs/lib/firmware
-guest-initramfs/bin/
-guest-initramfs/opt/
-guest-initramfs/lib/modules
-guest-initramfs/lib/firmware
+guest-initramfs
 setup.log
 build.log

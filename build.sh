@@ -62,12 +62,9 @@ export WANT_MODULES
 if [ $WANT_GUEST_ISOIMAGE -eq 1 ]; then
     echo "Building guest iso image ..."
 
-    # TODO: the assumption is that we don't want Leviathan in the guest, so we set
-    # WANT_MODULES to 0 -- but this is not necessarily true.
-
     # Install kernel and modules in guest
     GUEST=1 INITRAMFS=${GUEST_INITRAMFS} GUEST_KERNEL_RELEASE=${GUEST_KERNEL_RELEASE} \
-        KERNEL_SOURCE=${GUEST_KERNEL_SOURCE} WANT_MODULES=0 source ./install.sh 
+        KERNEL_SOURCE=${GUEST_KERNEL_SOURCE} source ./install.sh 
 
     # Build guest iso
     KERNEL_SOURCE=${GUEST_KERNEL_SOURCE} INITRD="${GUEST_INITRAMFS}.cpio.gz" CONFIG="guest.cfg" \
