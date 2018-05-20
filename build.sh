@@ -66,7 +66,7 @@ if [ $WANT_GUEST_ISOIMAGE -eq 1 ]; then
     # WANT_MODULES to 0 -- but this is not necessarily true.
 
     # Install kernel and modules in guest
-    INITRAMFS=${GUEST_INITRAMFS} GUEST_KERNEL_RELEASE=${GUEST_KERNEL_RELEASE} \
+    GUEST=1 INITRAMFS=${GUEST_INITRAMFS} GUEST_KERNEL_RELEASE=${GUEST_KERNEL_RELEASE} \
         KERNEL_SOURCE=${GUEST_KERNEL_SOURCE} WANT_MODULES=0 source ./install.sh 
 
     # Build guest iso
@@ -82,7 +82,7 @@ else
 fi
 
 # Install kernel and modules in host
-INITRAMFS=${HOST_INITRAMFS} KERNEL_RELEASE=${KERNEL_RELEASE} KERNEL_SOURCE=${KERNEL_SOURCE} \
+GUEST=0 INITRAMFS=${HOST_INITRAMFS} KERNEL_RELEASE=${KERNEL_RELEASE} KERNEL_SOURCE=${KERNEL_SOURCE} \
     source ./install.sh
 
 rm -f ../images/image.iso

@@ -110,16 +110,21 @@ if [ $WANT_LEVIATHAN -eq 1 ]; then
     cp $LEVIATHAN_SOURCE/lnx_inittask/lnx_init $INITRAMFS/opt/leviathan
     cp $LEVIATHAN_SOURCE/lwk_inittask/lwk_init $INITRAMFS/opt/leviathan
     cp $LEVIATHAN_SOURCE/shell/hobbes $INITRAMFS/opt/leviathan
-    cp initramfs_files/leviathan/* $INITRAMFS/opt/leviathan
+
+    if [ ! -z $GUEST ] && [ $GUEST -eq 1 ]; then
+        cp initramfs_files/guest/leviathan/* $INITRAMFS/opt/leviathan
+    else
+        cp initramfs_files/host/leviathan/* $INITRAMFS/opt/leviathan
+
+        # Hobbes configuration files
+        mkdir -p $INITRAMFS/opt/configs
+        cp initramfs_files/host/configs/* $INITRAMFS/opt/configs
+    fi
 
     # HIO stubs
     mkdir -p $INITRAMFS/opt/hio
     cp $LEVIATHAN_SOURCE/hio/generic-io-stub/stub $INITRAMFS/opt/hio
     cp $LEVIATHAN_SOURCE/hio/test-app/app $INITRAMFS/opt/hio/app
-
-    # Configuration files
-    mkdir -p $INITRAMFS/opt/configs
-    cp initramfs_files/configs/* $INITRAMFS/opt/configs
 fi
 
 # External binaries
