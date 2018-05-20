@@ -75,7 +75,7 @@ if [ $WANT_GUEST_ISOIMAGE -eq 1 ]; then
     mv image.iso ${HOST_INITRAMFS}/opt/isos/guest-img.iso
     rm "${GUEST_INITRAMFS}.cpio.gz"
 else
-    rm -f initramfs/opt/isos/guest-img.iso
+    rm -f ${HOST_INITRAMFS}/opt/isos/guest-img.iso
 fi
 
 # Install kernel and modules in host
