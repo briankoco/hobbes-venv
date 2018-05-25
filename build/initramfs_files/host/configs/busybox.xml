@@ -77,15 +77,15 @@
             <bus>pci0</bus>
         </device>
 
-        <device class="CHAR_STREAM" id="com1">
-            <name>com1</name>
+        <device class="CHAR_STREAM" id="ttyS0">
+            <name>ttyS0</name>
             <frontend tag="serial">
                 <com_port>1</com_port>
             </frontend>
         </device>
 
-        <device class="CHAR_STREAM" id="com2">
-            <name>com2</name>
+        <device class="CHAR_STREAM" id="virtio">
+            <name>virtio</name>
             <frontend tag="virtio_console">
                 <com_port>2</com_port>
             </frontend>
