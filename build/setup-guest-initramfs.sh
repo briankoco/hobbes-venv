@@ -15,7 +15,7 @@ mkdir guest-initramfs
 
 # /dev, /tmp, /sys, /proc will be created by install.sh
 
-dirs=("bin" "lib" "lib64" "share" "usr" "root")
+dirs=("bin" "lib" "lib64" "share" "usr")
 
 for d in ${dirs[@]}; do
     echo $d
@@ -24,7 +24,7 @@ for d in ${dirs[@]}; do
 done
 
 # etc is different as there are differences from the host
-cp -r initramfs_files/guest/etc guest-initramfs/etc
+cp -r build/initramfs_files/guest/etc guest-initramfs/etc
 
 pushd guest-initramfs
 ln -s bin sbin
