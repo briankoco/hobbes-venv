@@ -55,9 +55,14 @@ Invoke:
 to boot a pre-built version of the Hobbes NVL with version 3.8.1 of the Linux
 kernel via QEMU/KVM.
 
-Login information:
-    username: root
-    password: hobbes
+### Login information
+
+Use these credentials to login to the initramfs. These are the same credentials
+to use for the guest initramfs as wel;.
+
+* **username:** root
+* **password:** hobbes
+
 
 ## Customizing your Builds
 
@@ -191,7 +196,7 @@ kernel. We are aware of at least the following requirements:
 * CONFIG_MEMORY_HOTREMOVE=y
 * CONFIG_MMU_NOTIFIER=y
 * CONFIG_HOTPLUG_CPU=y
-* \# CONFIG_DEBUG_PAGEALLOC is **not set**
+* \# CONFIG_DEBUG_PAGEALLOC is **not set** (this **must** be disabled)
 * CONFIG_UEVENT_HELPER="/sbin/hotplug" (required for compatibility with the busybox `mdev` utility)
 
 Furthermore, to enable serial console access via QEMU, the kernel needs (at
@@ -199,6 +204,19 @@ least) the following options:
 
 * CONFIG_SERIAL_8250=y
 * CONFIG_SERIAL_8250_CONSOLE=y
+
+### Nested **Guest** Kernel Configuration Settings
+
+Generally, you can use the same kernel configuration for nested Palacios VMs. However, it helps
+greatly if you also have the Linux virtio console driver compiled in the guest:
+
+* CONFIG_VIRTIO=y
+* CONFIG_VIRTIO_PCI=y
+* CONFIG_VIRTIO_PCI_LEGACY=y
+* CONFIG_VIRTIO_MMIO=y
+* CONFIG_HVC_DRIVER=y
+* CONFIG_VIRTIO_CONSOLE=y
+
 
 ## Known Issues
 
