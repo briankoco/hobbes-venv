@@ -53,7 +53,11 @@ Invoke:
     ./run-in-qemu.sh images/lnx3-8-1-with-nvl.iso
 
 to boot a pre-built version of the Hobbes NVL with version 3.8.1 of the Linux
-kernel via QEMU/KVM
+kernel via QEMU/KVM.
+
+Login information:
+    username: root
+    password: hobbes
 
 ## Customizing your Builds
 
