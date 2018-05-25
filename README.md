@@ -200,12 +200,12 @@ least) the following options:
 
 1. **Guest kernel panics during boot process**
 
-    When running images via QEMU, the `run-in-qemu.sh` script uses the `-cpu host`
-    model to emulate the exact CPU model of the host machine, which is the most 
-    reliable way to ensure that the emulated CPU has virtualization extensions
-    required for Palacios. However, `-cpu host` frequently causes problems in
-    QEMU/KVM, including kernel panics during the boot process, usually as a
-    result of `rdmsr/wrmsr` instructions.
+    When running images via QEMU, the `run-in-qemu.sh` can be configured to use
+    the `-cpu host` model to emulate the exact CPU model of the host machine,
+    which is the most reliable way to ensure that the emulated CPU has
+    virtualization extensions required for Palacios. However, `-cpu host`
+    frequently causes problems in QEMU/KVM, including kernel panics during the
+    boot process, usually as a result of `rdmsr/wrmsr` instructions.
 
     There are two general workarounds to this problem:
 
@@ -222,9 +222,9 @@ least) the following options:
 
 2. **Failed to execute /init during boot process**
 
-    This is likely also an issue with `-cpu host` on some processor architectures.
-    We have confirmed this issue on AMD EPYC processors. Remove `-cpu host` from
-    the QEMU command line
+    This is likely also an issue due to `-cpu host`; if you compiled the isoimage
+    on a different system/architecture than you're running on, this error will
+    likely result
  
 ## TODO
 
