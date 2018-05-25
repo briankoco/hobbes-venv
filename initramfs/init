@@ -38,8 +38,5 @@ chmod go+rw /dev/ptmx
 # Misc. debugging
 # ls -l /dev
 
-clear
-echo "Hello from the initramfs"
-
 # Fire up the console
 exec /bin/busybox init "$@" < /dev/console > /dev/console 2>&1

@@ -27,6 +27,6 @@ echo "END /etc/init.d/rcS"
 clear
 echo 
 echo
-echo " **** Hello from the Hobbes-venv initramfs! ****"
+echo " **** Hello from the V3VEE Hobbes-venv initramfs! ****"
 echo
 

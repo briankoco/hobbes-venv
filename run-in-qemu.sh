@@ -31,4 +31,4 @@ else
     cpu_opt="qemu64"
 fi
 
-qemu-system-x86_64 -enable-kvm -cpu $cpu_opt  -smp 2 -m 1024 -boot d -cdrom $isoimage -nographic 
+qemu-system-x86_64 -enable-kvm -cpu $cpu_opt -smp 2 -m 1024 -boot d -cdrom $isoimage -nographic 

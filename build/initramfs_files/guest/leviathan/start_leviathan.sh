@@ -8,6 +8,8 @@ modprobe xpmem ns=0
 
 echo "Launching Leviathan Node Manager."
 
+export HOBBES_APP_ID=0
+
 /opt/leviathan/lnx_init ${@:1} > /opt/leviathan/leviathan.log &
 #/opt/leviathan/lnx_init ${@:1} &
 

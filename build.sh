@@ -67,6 +67,7 @@ if [ $WANT_GUEST_ISOIMAGE -eq 1 ]; then
         KERNEL_SOURCE=${GUEST_KERNEL_SOURCE} source ./install.sh 
 
     # Build guest iso
+    # sed -i "s/console=[a-zA-Z0-9]*/console=${GUEST_CONSOLE}/g" guest.cfg 
     KERNEL_SOURCE=${GUEST_KERNEL_SOURCE} INITRD="${GUEST_INITRAMFS}.cpio.gz" CONFIG="guest.cfg" \
         source ./gen-isoimage.sh 
 
