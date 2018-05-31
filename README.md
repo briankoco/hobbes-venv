@@ -172,8 +172,8 @@ the Leviathan framework.
     ```
 
 3. If you plan to use Palacios in your image, you need to modify the Palacios
-   configuration to enable serial and/or virtio console support in the Palacions
-   configurations. To do so, set the following two options:
+   configuration to enable serial and virtio consoles. To do so, set the
+   following two options:
 
    * cd <leviathan_dir>/palacios
    * `make menuconfig`
