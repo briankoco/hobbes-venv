@@ -210,6 +210,8 @@ kernel. We are aware of at least the following requirements:
 * CONFIG_HOTPLUG_CPU=y
 * \# CONFIG_DEBUG_PAGEALLOC is **not set** (this **must** be disabled)
 * CONFIG_UEVENT_HELPER="/sbin/hotplug" (required for compatibility with the busybox `mdev` utility)
+* CONFIG_KALLSYMS=y
+* CONFIG_KALLSYMS_ALL=y (might not be required for all kernel versions, but to be safe it should be enabled)
 
 Furthermore, to enable serial console access via QEMU, the kernel needs (at
 least) the following options:
