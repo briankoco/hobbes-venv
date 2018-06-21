@@ -91,6 +91,15 @@
             </frontend>
         </device>
 
+        <device class="LNX_VIRTIO_NIC" id="virtio_nic">
+            <bus>pci0</bus>
+        </device>
+
+        <device class="NIC_BRIDGE" id="eth0">
+            <name>eth0</name>
+            <frontend tag="virtio_nic">
+            </frontend>
+        </device>
 
         <device class="NVRAM" id="nvram">
             <storage>ide</storage>
