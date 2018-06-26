@@ -229,7 +229,6 @@ greatly if you also have the Linux virtio console driver compiled in the guest:
 * CONFIG_VIRTIO_PCI=y
 * CONFIG_VIRTIO_PCI_LEGACY=y
 * CONFIG_VIRTIO_MMIO=y
-* CONFIG_HVC_DRIVER=y
 * CONFIG_VIRTIO_CONSOLE=y
 
 
