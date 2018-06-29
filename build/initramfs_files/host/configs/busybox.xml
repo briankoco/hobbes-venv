@@ -95,8 +95,9 @@
             <bus>pci0</bus>
         </device>
 
-        <device class="NIC_BRIDGE" id="eth0">
-            <name>eth0</name>
+        <device class="NIC_BRIDGE" id="lbr0">
+            <name>lbr0</name>
+            <tap>true</tap>
             <frontend tag="virtio_nic">
             </frontend>
         </device>

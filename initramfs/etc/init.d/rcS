@@ -8,19 +8,21 @@ chown root -R /root
 # Install modules
 depmod
 
-# Run leviathan setup script
-# /opt/leviathan/start_leviathan.sh
-
 # Bring up lo
-ifconfig lo 127.0.0.1 netmask 255.0.0.0 up
-
-# Bring up eth0 on host only network
-#ip addr flush dev eth0
-#ip addr add 192.168.254.21/255.255.255.0 dev eth0
-#ifconfig eth0 up
+ifconfig lo 127.0.0.1 netmask 255.255.0.0 up
 
 # Startup dropbear
-#dropbear
+dropbear
+
+# Set hostname
+hostname host
+
+# symlink dbclient to 'ssh'
+ln -s /bin/dbclient /bin/ssh
+
+# Start Leviathan with all CPUs online and 512MB of memory
+nr_cores=$(nproc)
+/opt/leviathan/start_leviathan.sh --c $nr_cores --m 512
 
 echo "END /etc/init.d/rcS"
 
