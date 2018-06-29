@@ -230,6 +230,10 @@ greatly if you also have the Linux virtio console driver compiled in the guest:
 * CONFIG_VIRTIO_PCI_LEGACY=y
 * CONFIG_VIRTIO_MMIO=y
 * CONFIG_VIRTIO_CONSOLE=y
+* CONFIG_VIRTTO_NET=y
+
+These settings will allow you to more easily interact with Palacios VMs via either 'ssh' or
+via the virtio console
 
 
 ## Known Issues
