@@ -171,7 +171,20 @@ the Leviathan framework.
     ./setup.sh
     ```
 
-3. Finally, invoke:
+3. If you plan to use Palacios in your image, you need to modify the Palacios
+   configuration to enable serial and virtio consoles. To do so, set the
+   following two options:
+
+   * cd <leviathan_dir>/palacios
+   * `make menuconfig`
+       1. Target Configuration --> Host Interfaces --> [x] Stream Support
+       2. Virtual Devices --> [x] Stream based character frontend
+
+   You will need to make these changes in both `<leviathan_dir>/palacios` and
+   `<leviathan_dir>/palacios-lwk`
+
+   
+4. Finally, invoke:
 
     ```
     make
