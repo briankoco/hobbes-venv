@@ -24,9 +24,6 @@ ln -s /bin/dbclient /bin/ssh
 nr_cores=$(nproc)
 /opt/leviathan/start_leviathan.sh --c $nr_cores --m 512
 
-# Bring up static IP on Leviathan host-only network
-ifconfig eth0 192.168.172.10 netmask 255.255.255.0 up
-
 echo "END /etc/init.d/rcS"
 
 clear
