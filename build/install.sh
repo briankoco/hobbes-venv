@@ -121,10 +121,14 @@ if [ $WANT_LEVIATHAN -eq 1 ]; then
         cp initramfs_files/host/configs/* $INITRAMFS/opt/configs
     fi
 
+    # Leviathan test programs
+    #mkdir -p $INITRAMFS/opt/leviathan/tests
+    #find $LEVIATHAN_SOURCE/tests -executable -exec cp -- "{}" $INITRAMFS/opt/leviathan/tests \;
+
     # HIO stubs
-    mkdir -p $INITRAMFS/opt/hio
-    cp $LEVIATHAN_SOURCE/hio/generic-io-stub/stub $INITRAMFS/opt/hio
-    cp $LEVIATHAN_SOURCE/hio/test-app/app $INITRAMFS/opt/hio/app
+    #mkdir -p $INITRAMFS/opt/hio
+    #cp $LEVIATHAN_SOURCE/hio/generic-io-stub/stub $INITRAMFS/opt/hio
+    #cp $LEVIATHAN_SOURCE/hio/test-app/app $INITRAMFS/opt/hio/app
 fi
 
 # External binaries

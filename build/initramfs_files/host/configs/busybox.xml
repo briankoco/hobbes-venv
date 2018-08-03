@@ -1,5 +1,5 @@
 <vm class="PC"> 
-    <memory size="256" numa="-1"/>
+    <memory size="512" numa="-1"/>
 
     <telemetry>disable</telemetry>
     

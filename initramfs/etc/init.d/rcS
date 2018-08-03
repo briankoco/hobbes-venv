@@ -12,7 +12,7 @@ depmod
 ifconfig lo 127.0.0.1 netmask 255.255.0.0 up
 
 # Startup dropbear
-dropbear
+dropbear -F &
 
 # Set hostname
 hostname host
@@ -21,7 +21,11 @@ hostname host
 ln -s /bin/dbclient /bin/ssh
 
 # Start Leviathan with all CPUs online and 512MB of memory
-nr_cores=$(nproc)
+#nr_cores=$(nproc)
+
+# Start Leviathan with just 1 CPU online and 512MB of memory
+nr_cores=1
+
 /opt/leviathan/start_leviathan.sh --c $nr_cores --m 512
 
 echo "END /etc/init.d/rcS"
