@@ -5,6 +5,7 @@ modprobe petos
 
 echo "Inserting XPMEM Module."
 modprobe xpmem ns=0
+#modprobe xpmem ns=0 xpmem_follow_page=1
 
 echo "Launching Leviathan Node Manager."
 

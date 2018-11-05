@@ -65,4 +65,9 @@ exec_and_check ./dropbear-build.sh || exit 1
 
 popd
 
+echo -n "Generating ssh keys ... "
+source build/setup-ssh-keys.sh
+
+echo 
+echo -n "Setting up guest-initramfs directory ... "
 source build/setup-guest-initramfs.sh

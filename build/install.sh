@@ -135,6 +135,17 @@ fi
 cp -r ../extern/install/bin/* $INITRAMFS/bin
 cp -r ../extern/install/sbin/* $INITRAMFS/sbin
 
+# install ssh keys
+key_dir=initramfs_files/ssh_keys
+ssh_dir="$INITRAMFS/root/.ssh"
+mkdir -p $ssh_dir
+chmod 700 $ssh_dir
+
+cp $key_dir/id_dropbear $ssh_dir/
+cp $key_dir/id_dropbear.pub $ssh_dir/
+cp $key_dir/id_dropbear.pub $ssh_dir/authorized_keys
+chmod 600 $ssh_dir/authorized_keys
+
 # Install the initramfs
 pushd $INITRAMFS
 echo "Generating ${INITRAMFS}.cpio.gz"

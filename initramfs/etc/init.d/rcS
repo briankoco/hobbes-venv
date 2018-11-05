@@ -3,7 +3,9 @@ echo " ..... "
 
 echo "4 4 1 7" > /proc/sys/kernel/printk
 
-chown root -R /root
+chown root:root -R /root
+chmod 700 /root
+find / -type d -exec chmod g+s {} + 2> /dev/null
 
 # Install modules
 depmod
@@ -12,7 +14,7 @@ depmod
 ifconfig lo 127.0.0.1 netmask 255.255.0.0 up
 
 # Startup dropbear
-dropbear -F &
+dropbear -F -r /root/.ssh/id_dropbear &
 
 # Set hostname
 hostname host
