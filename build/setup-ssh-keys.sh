@@ -1,6 +1,6 @@
 #!/bin/sh
 
-keygen=$(pwd)/initramfs/bin/dropbearkey
+keygen=$(pwd)/extern/install/bin/dropbearkey
 dest=$(pwd)/build/initramfs_files/ssh_keys
 mkdir -p $dest
 rm -f $dest/*
