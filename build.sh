@@ -87,17 +87,27 @@ rm -f ../images/image.iso
 rm -f ../images/initrd.img
 rm -f ../images/bzImage
 
+INITRD="${HOST_INITRAMFS}.cpio.gz"
+KERNEL="${KERNEL_SOURCE}/arch/x86/boot/bzImage"
+
+# Install in PXE dir, if wanted
+if [ $WANT_PXEBOOT -eq 1 ]; then
+    echo "installing to ${PXEBOOT_DIR}"
+    cp $INITRD "${PXEBOOT_DIR}/initrd"
+    cp $KERNEL "${PXEBOOT_DIR}/bzImage"
+fi
+
 # Build host iso, or save initrd/bzimage
 if [ $WANT_ISOIMAGE -eq 1 ]; then
-    KERNEL_SOURCE=${KERNEL_SOURCE} INITRD="${HOST_INITRAMFS}.cpio.gz" CONFIG="host.cfg" \
+    KERNEL_SOURCE=${KERNEL_SOURCE} INITRD=${INITRD} CONFIG="host.cfg" \
         source ./gen-isoimage.sh 
 
     mkdir -p ../images
     mv image.iso ../images/image.iso
-    rm "${HOST_INITRAMFS}.cpio.gz"
+    rm $INITRD
 else
-    mv "${HOST_INITRAMFS}.cpio.gz" ../images/initrd.img
-    cp $KERNEL_SOURCE/arch/x86/boot/bzImage ../images/bzImage
+    mv $INITRD ../images/initrd
+    cp $KERNEL ../images/bzImage
 fi
 
 popd

@@ -51,3 +51,10 @@ WANT_GUEST_ISOIMAGE=${WANT_GUEST_ISOIMAGE:-0}
 if [ $WANT_GUEST_ISOIMAGE -eq 1 ]; then
     GUEST_KERNEL_SOURCE=${GUEST_KERNEL_SOURCE:-$KERNEL_SOURCE}
 fi
+
+WANT_PXEBOOT=${WANT_PXEBOOT:-0}
+
+# Path to pxedir
+if [ $WANT_PXEBOOT -eq 1 ]; then
+    PXEBOOT_DIR=${PXEBOOT_DIR:-/var/lib/tftpboot/hobbes-venv}
+fi
