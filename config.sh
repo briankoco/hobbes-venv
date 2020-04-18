@@ -19,9 +19,8 @@
 # development environment, but you can pass a pointer to any compiled kernel
 # source tree here
 
-#KERNEL_SOURCE=${KERNEL_SOURCE:-""}
+KERNEL_SOURCE=${KERNEL_SOURCE:-""}
 #KERNEL_SOURCE=lib/modules/`uname -r`/build
-KERNEL_SOURCE=/usr/src/kernels/linux-4.16.1
 
 if [ -z $KERNEL_SOURCE ]; then
     echo "You must specify KERNEL_SOURCE, either in your environment or via config.sh"
